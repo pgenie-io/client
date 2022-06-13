@@ -1,7 +1,7 @@
 cabal-version: 3.0
 
 name: pgenie-client
-summary: Pgenie API client lib
+synopsis: Pgenie service client lib
 description:
   A facade over lean-http-client specializing only on the ops
   supported by the Pgenie API server.
