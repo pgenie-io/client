@@ -4,7 +4,7 @@ module PgenieClient
   ( Op,
     Lhc.Err (..),
 
-    -- * Resource management
+    -- * Execution
     operateGlobally,
 
     -- * Operations
@@ -30,26 +30,25 @@ operate =
   error "TODO"
 
 -- | Execute operation on global manager.
-operateGlobally :: Op a -> IO (Either Lhc.Err a)
-operateGlobally =
-  Lhc.runSessionOnGlobalManager
+operateGlobally :: Op a -> Bool -> Lhc.Host -> Maybe Int -> IO (Either Lhc.Err a)
+operateGlobally op secure host port = do
+  runReaderT op (secure, host, port)
+    & Lhc.runSessionOnGlobalManager
 
 type Rsc = HttpClient.Manager
 
-type Op = Lhc.Session
+type Op = ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session
 
 -- * Operations
 
 executeRequest :: Protocol.Request -> Op Protocol.Response
 executeRequest req =
-  Lhc.post url headers requestBody parser
+  ReaderT $ \(https, host, port) ->
+    Lhc.post (url https host port) headers requestBody parser
   where
-    url =
+    url https host port =
       Lhc.url https host port path query
       where
-        https = True
-        host = "pgenie.tech"
-        port = Nothing
         path = "/api/v1"
         query = []
     headers =
