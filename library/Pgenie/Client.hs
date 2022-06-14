@@ -31,8 +31,6 @@ operateGlobally op secure host port = do
     -- TODO: Make prettier
     printErr = showAs
 
-type Rsc = HttpClient.Manager
-
 type Op = ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session
 
 -- * Operations
