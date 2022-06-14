@@ -23,7 +23,7 @@ import qualified System.Directory as Directory
 
 -- | Execute operation on global manager.
 operateGlobally :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Text a)
-operateGlobally op secure host port = do
+operateGlobally (Op op) secure host port = do
   runReaderT op (secure, Lhc.textHost host, port)
     & Lhc.runSessionOnGlobalManager
     & fmap (first printErr)
@@ -31,13 +31,15 @@ operateGlobally op secure host port = do
     -- TODO: Make prettier
     printErr = showAs
 
-type Op = ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session
+newtype Op a
+  = Op (ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session a)
+  deriving (Functor, Applicative, Monad)
 
 -- * Operations
 
 executeRequest :: Protocol.Request -> Op Protocol.Response
 executeRequest req =
-  ReaderT $ \(https, host, port) ->
+  Op . ReaderT $ \(https, host, port) ->
     Lhc.post (url https host port) headers requestBody parser
   where
     url https host port =
