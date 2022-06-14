@@ -2,7 +2,6 @@
 -- A thin wrapper over lean http client.
 module Pgenie.Client
   ( Op,
-    Lhc.Err (..),
 
     -- * Execution
     operateGlobally,
@@ -22,18 +21,15 @@ import Pgenie.Client.Prelude
 import qualified Pgenie.Protocol.V1 as Protocol
 import qualified System.Directory as Directory
 
-acquire :: IO Rsc
-acquire = error "TODO"
-
-operate :: Rsc -> Op a -> IO (Either Lhc.Err a)
-operate =
-  error "TODO"
-
 -- | Execute operation on global manager.
-operateGlobally :: Op a -> Bool -> Lhc.Host -> Maybe Int -> IO (Either Lhc.Err a)
+operateGlobally :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Text a)
 operateGlobally op secure host port = do
-  runReaderT op (secure, host, port)
+  runReaderT op (secure, Lhc.textHost host, port)
     & Lhc.runSessionOnGlobalManager
+    & fmap (first printErr)
+  where
+    -- TODO: Make prettier
+    printErr = showAs
 
 type Rsc = HttpClient.Manager
 
