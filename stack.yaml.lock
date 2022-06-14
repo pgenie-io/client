@@ -5,26 +5,15 @@
 
 packages:
 - completed:
-    name: pgenie-protocol
-    pantry-tree:
-      sha256: ff87358ad00a9f1943fb434525d2bf2bfe38f204a0b618bf6f35fd3529d10e0f
-      size: 425
-    commit: 4af579cd68f989062f4b23b2cce9d43c67a4b603
-    git: https://github.com/pgenie-tech/protocol
-    version: '0.1'
-  original:
-    commit: 4af579cd68f989062f4b23b2cce9d43c67a4b603
-    git: https://github.com/pgenie-tech/protocol
-- completed:
     name: coalmine
     pantry-tree:
-      sha256: 557687db621fc9ff04575cfbbef08e2dde73b3ba82d81b64cc9435a930b14d95
-      size: 8454
-    commit: 48e79f118186b297585e7f6075270a754979e255
+      sha256: 0d0289e9bbce66a295cdf6c7fd3379697bcccb7d176551ffded0baeda7a39b70
+      size: 9575
+    commit: 14f6f3917e78817faa3abbf3c4d082905dee87f0
     git: https://github.com/nikita-volkov/coalmine
     version: '0.1'
   original:
-    commit: 48e79f118186b297585e7f6075270a754979e255
+    commit: 14f6f3917e78817faa3abbf3c4d082905dee87f0
     git: https://github.com/nikita-volkov/coalmine
 - completed:
     name: moore-machines
@@ -144,6 +133,17 @@ packages:
   original:
     commit: 2c2905f2addb0d1925c43d427fcf65340ee64b2a
     git: https://github.com/nikita-volkov/distillery
+- completed:
+    name: pgenie-protocol
+    pantry-tree:
+      sha256: bf7f1f0db9fd1230502477e519152189ebfe9d2ad556bdea6cf006cc1acf3776
+      size: 551
+    commit: 8a8890b32d191cf2332e401bd68b7dff6f3ee82e
+    git: https://github.com/pgenie-tech/protocol
+    version: '0.1'
+  original:
+    commit: 8a8890b32d191cf2332e401bd68b7dff6f3ee82e
+    git: https://github.com/pgenie-tech/protocol
 snapshots:
 - completed:
     sha256: 869e23c4f7367895ae63b129255b70bc8b4b965229aa258f6c50141c6b10ae76

@@ -1,9 +1,7 @@
 resolver: nightly-2022-06-08
 extra-deps:
-  - git: https://github.com/pgenie-tech/protocol
-    commit: 4af579cd68f989062f4b23b2cce9d43c67a4b603
   - git: https://github.com/nikita-volkov/coalmine
-    commit: 48e79f118186b297585e7f6075270a754979e255
+    commit: 14f6f3917e78817faa3abbf3c4d082905dee87f0
   - git: https://github.com/nikita-volkov/moore-machines
     commit: 7e95c33b203a1cfe42dbc0e0de3cec8e6fe94290
   - git: https://github.com/nikita-volkov/isomorphism-class
@@ -23,3 +21,5 @@ extra-deps:
     commit: 404bae6deaee873798ff0b2154e9a1f8e5ed51d4
   - git: https://github.com/nikita-volkov/distillery
     commit: 2c2905f2addb0d1925c43d427fcf65340ee64b2a
+  - git: https://github.com/pgenie-tech/protocol
+    commit: 8a8890b32d191cf2332e401bd68b7dff6f3ee82e

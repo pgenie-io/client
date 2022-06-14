@@ -16,9 +16,9 @@ library
   import: language-settings
   hs-source-dirs: library
   exposed-modules:
-    PgenieClient
+    Pgenie.Client
   other-modules:
-    PgenieClient.Prelude
+    Pgenie.Client.Prelude
   build-depends:
     attoparsec,
     cereal,
