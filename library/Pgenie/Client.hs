@@ -55,7 +55,8 @@ executeRequest req =
       mempty
     requestBody =
       Cereal.encode req
-    parser =
+    parser = do
+      Lhc.expectOkStatus
       Lhc.deserializeBodyWithCereal Cereal.get
 
 process :: Name -> Name -> [(Path, Text)] -> [(Path, Text)] -> Op (Either Text [(Path, Text)])
