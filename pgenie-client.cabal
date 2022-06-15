@@ -17,8 +17,6 @@ library
   hs-source-dirs: library
   exposed-modules:
     Pgenie.Client
-  other-modules:
-    Pgenie.Client.Prelude
   build-depends:
     attoparsec,
     cereal,
