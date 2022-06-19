@@ -48,7 +48,9 @@ executeRequest req =
         path = "/api/v1"
         query = []
     headers =
-      mempty
+      mconcat
+        [ Lhc.requestHeader "content-type" "application/octet-stream"
+        ]
     requestBody =
       Cereal.encode req
     parser = do
