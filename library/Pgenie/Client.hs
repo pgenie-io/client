@@ -52,7 +52,7 @@ executeRequest req =
         [ Lhc.requestHeader "content-type" "application/octet-stream"
         ]
     requestBody =
-      traceShowId $ Cereal.encode req
+      Cereal.encode req
     parser = do
       Lhc.expectOkStatus
       Lhc.deserializeBodyWithCereal Cereal.get
