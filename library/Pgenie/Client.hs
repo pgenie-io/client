@@ -29,7 +29,10 @@ operateGlobally (Op op) secure host port = do
     & fmap (first printErr)
   where
     -- TODO: Make prettier
-    printErr = showAs
+    printErr = \case
+      Lhc.TimeoutErr -> "Connection timeout when connecting to " <> host
+      Lhc.NetworkErr _ -> "Failure connecting to " <> host
+      Lhc.ResponseParsingErr _ -> "Unexpected response from " <> host
 
 newtype Op a
   = Op (ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session a)
