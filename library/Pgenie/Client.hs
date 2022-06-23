@@ -2,7 +2,9 @@
 -- A thin wrapper over lean http client.
 module Pgenie.Client
   ( -- * Execution
-    operate,
+    Lhc.Err (..),
+    run,
+    runHappily,
 
     -- * Operations
     Op,
@@ -19,11 +21,22 @@ import qualified Pgenie.Protocol.V1 as Protocol
 import qualified System.Directory as Directory
 
 -- | Execute operation.
-operate :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Text a)
-operate (Op op) secure host port = do
+run :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Lhc.Err a)
+run (Op op) secure host port = do
   runReaderT op (secure, Lhc.textHost host, port)
     & Lhc.runSessionOnGlobalManager
-    & fmap (first printErr)
+  where
+    -- TODO: Make prettier
+    printErr = \case
+      Lhc.TimeoutErr -> "Connection timeout when connecting to " <> host
+      Lhc.NetworkErr _ -> "Failure connecting to " <> host
+      Lhc.ResponseParsingErr _ -> "Unexpected response from " <> host
+
+-- | Execute operation exiting the program and printing a readable message in
+-- case of error. Useful when for implementation of main.
+runHappily :: Op a -> Bool -> Text -> Maybe Int -> IO a
+runHappily op secure host port =
+  run op secure host port >>= either (die . to . printErr) return
   where
     -- TODO: Make prettier
     printErr = \case
