@@ -16,8 +16,6 @@ import Coalmine.Prelude hiding (Op)
 import qualified Data.Serialize as Cereal
 import qualified Data.Text.IO as TextIO
 import qualified LeanHttpClient as Lhc
-import qualified Network.HTTP.Client as HttpClient
-import qualified Network.HTTP.Client.TLS as HttpClientTls
 import qualified Pgenie.Protocol.V1 as Protocol
 import qualified System.Directory as Directory
 

@@ -25,8 +25,6 @@ library
     domain-aeson,
     domain-optics,
     directory,
-    http-client,
-    http-client-tls,
     lean-http-client,
     pgenie-protocol,
     rerebase,
