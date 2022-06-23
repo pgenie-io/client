@@ -62,11 +62,11 @@ executeRequest req =
 
 process :: Name -> Name -> [(Path, Text)] -> [(Path, Text)] -> Op (Either Text [(Path, Text)])
 process org name migrations queries = do
-  fmap mapOut $
-    executeRequest $
+  fmap mapOut $ executeRequest request
+  where
+    request =
       Protocol.ProcessRequest $
         Protocol.RequestProcess org name migrations queries
-  where
     mapOut = \case
       Protocol.FailedResponse err -> Left err
       Protocol.GeneratedResponse res -> Right res
