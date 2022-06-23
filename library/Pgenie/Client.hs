@@ -1,12 +1,11 @@
 -- |
 -- A thin wrapper over lean http client.
 module Pgenie.Client
-  ( Op,
-
-    -- * Execution
-    operateGlobally,
+  ( -- * Execution
+    operate,
 
     -- * Operations
+    Op,
     process,
   )
 where
@@ -19,9 +18,9 @@ import qualified LeanHttpClient as Lhc
 import qualified Pgenie.Protocol.V1 as Protocol
 import qualified System.Directory as Directory
 
--- | Execute operation on global manager.
-operateGlobally :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Text a)
-operateGlobally (Op op) secure host port = do
+-- | Execute operation.
+operate :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Text a)
+operate (Op op) secure host port = do
   runReaderT op (secure, Lhc.textHost host, port)
     & Lhc.runSessionOnGlobalManager
     & fmap (first printErr)
