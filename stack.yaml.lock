@@ -115,6 +115,12 @@ packages:
     git: https://github.com/pgenie-tech/protocol
 snapshots:
 - completed:
+    sha256: c974bdb7f2ae1f096e6800ee691c24f02c49a84aeb27aeabad3ffc6de26c0c59
+    size: 269
+    url: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/fe22f5baefcd52aed9dec66f5d8a3e4ac1743649/snapshot.yaml
+  original:
+    url: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/fe22f5baefcd52aed9dec66f5d8a3e4ac1743649/snapshot.yaml
+- completed:
     sha256: 7fff185ddc9c3cf3782ed208aaac9f9285b845bfc163642f11d4173d9c758c20
     size: 873
     url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/a80edde26f01c6dfd0bc5f35cd079aa13bf10ce4/snapshot.yaml

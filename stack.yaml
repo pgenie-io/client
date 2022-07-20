@@ -1,4 +1,1 @@
-resolver: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/a80edde26f01c6dfd0bc5f35cd079aa13bf10ce4/snapshot.yaml
-extra-deps:
-  - git: https://github.com/pgenie-tech/protocol
-    commit: f0298f5382572e3c4d23676cdb8c8ff7cf1c9efb
+resolver: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/fe22f5baefcd52aed9dec66f5d8a3e4ac1743649/snapshot.yaml
