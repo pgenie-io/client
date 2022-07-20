@@ -70,13 +70,13 @@ executeRequest req =
       Lhc.expectOkStatus
       Lhc.deserializeBodyWithCereal Cereal.get
 
-process :: Name -> Name -> [(Path, Text)] -> [(Path, Text)] -> Op (Either Text [(Path, Text)])
-process org name migrations queries = do
+process :: Name -> Name -> BVec (Path, Text) -> BVec (Path, Text) -> BVec Protocol.Artifact -> Op (Either Text (BVec (Path, Text)))
+process space name migrations queries artifacts = do
   fmap mapOut $ executeRequest request
   where
     request =
       Protocol.ProcessRequest $
-        Protocol.RequestProcess org name migrations queries
+        Protocol.RequestProcess space name migrations queries artifacts
     mapOut = \case
       Protocol.FailedResponse err -> Left err
       Protocol.GeneratedResponse res -> Right res

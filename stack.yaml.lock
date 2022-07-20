@@ -7,13 +7,13 @@ packages:
 - completed:
     name: coalmine
     pantry-tree:
-      sha256: bd0445c75a162897615ab3e1f62b208f6b64c01263747b8af58a2600e4c8e6d9
-      size: 9575
-    commit: 7c4e2c0d290f7fa958b4b5a8e8518283686f5717
+      sha256: 8896e428a656c392d25d499f9b024abd0c30459db09e8a78e1645bad43d4fb89
+      size: 9564
+    commit: a2857feca4d8a25bd868e0a4ff985b7ef4db6ec3
     git: https://github.com/nikita-volkov/coalmine
-    version: 0.1.0.1
+    version: 0.1.0.4
   original:
-    commit: 7c4e2c0d290f7fa958b4b5a8e8518283686f5717
+    commit: a2857feca4d8a25bd868e0a4ff985b7ef4db6ec3
     git: https://github.com/nikita-volkov/coalmine
 - completed:
     name: moore-machines
@@ -27,41 +27,60 @@ packages:
     commit: 7e95c33b203a1cfe42dbc0e0de3cec8e6fe94290
     git: https://github.com/nikita-volkov/moore-machines
 - completed:
-    name: isomorphism-class
-    pantry-tree:
-      sha256: 772cd5d9a535ac383d82984a03c706a32d9f0edb20829cdadd5b116efccd3a24
-      size: 608
-    commit: 6030243b4e2c28ab3c010b5f06cb6514d70f9c35
-    git: https://github.com/nikita-volkov/isomorphism-class
-    version: '0.1'
-  original:
-    commit: 6030243b4e2c28ab3c010b5f06cb6514d70f9c35
-    git: https://github.com/nikita-volkov/isomorphism-class
-- completed:
     name: structure-kit
     pantry-tree:
-      sha256: c64047580ccc550a98e97c8ceea649b1a60b4565f370043fc01a13e5ad4e2abb
+      sha256: b7779ebe935d65c0b4f6e3ea8b5f5011abdabf362b1673826545c93625e050ad
       size: 3500
-    commit: 807f9b40e15d2624f8a679c35a978c2b21a36bfe
+    commit: 46ffb6527c48f8a718adecd21a313f0b1ba5e81c
     git: https://github.com/nikita-volkov/structure-kit
     version: 0.1.0.1
   original:
-    commit: 807f9b40e15d2624f8a679c35a978c2b21a36bfe
+    commit: 46ffb6527c48f8a718adecd21a313f0b1ba5e81c
     git: https://github.com/nikita-volkov/structure-kit
 - completed:
+    name: canapi
     pantry-tree:
-      sha256: 4c700792b51236a70e364ac79c1cd0d197596264c0f57099eb5cea193b663c1b
-      size: 408
-    hackage: aeson-value-parser-0.19.7@sha256:c114ae7deb86b55154a408896602f9ce61555ac6fd044e8e209c9c544ad2f4db,2054
+      sha256: 54c44986c3d7f8daa4464e4e097f312dc3ac0c02f7eb5fbb8bba3a6e6d19487a
+      size: 1319
+    commit: 02f1d9ffea90522a3a0968305793a7f507c7da59
+    git: https://github.com/nikita-volkov/canapi
+    version: '0.1'
   original:
-    hackage: aeson-value-parser-0.19.7
+    commit: 02f1d9ffea90522a3a0968305793a7f507c7da59
+    git: https://github.com/nikita-volkov/canapi
 - completed:
+    name: lean-http-client
     pantry-tree:
-      sha256: 1240e61d89fa70c65636995919674b5bc55bc33a719e555fa4ec8950a91eb6e5
-      size: 604
-    hackage: cereal-unordered-containers-0.1@sha256:e47c65f76633248fccdea1f38de952473edf7a28cf05af38e64b681a47305c92,1544
+      sha256: 64da0f3390166969e2fe6a140d847c315258f9bcb8fcaf3169fd78b4b25b6f6f
+      size: 544
+    commit: 52343895df1e5ae49159b8c5f76a50ac438216b1
+    git: https://github.com/nikita-volkov/lean-http-client
+    version: '0.1'
   original:
-    hackage: cereal-unordered-containers-0.1
+    commit: 52343895df1e5ae49159b8c5f76a50ac438216b1
+    git: https://github.com/nikita-volkov/lean-http-client
+- completed:
+    name: distillery
+    pantry-tree:
+      sha256: 03d32965a35914b68bdaa149db48ce66e774783360f5b7d8b18db72de61b7baf
+      size: 524
+    commit: 2c2905f2addb0d1925c43d427fcf65340ee64b2a
+    git: https://github.com/nikita-volkov/distillery
+    version: '0.1'
+  original:
+    commit: 2c2905f2addb0d1925c43d427fcf65340ee64b2a
+    git: https://github.com/nikita-volkov/distillery
+- completed:
+    name: acquire
+    pantry-tree:
+      sha256: e194150d070a0e4f07e5f2285e82f177312f328c7490f3a659f361b4f6324d00
+      size: 438
+    commit: 75194757308ae9340b0e2eda46d8db4d25af7516
+    git: https://github.com/metrix-ai/acquire
+    version: 0.3.1
+  original:
+    commit: 75194757308ae9340b0e2eda46d8db4d25af7516
+    git: https://github.com/metrix-ai/acquire
 - completed:
     pantry-tree:
       sha256: 520aa5f59b55c14d27115a801f499f940a563849b0c54876bcd6be41f6450713
@@ -69,20 +88,6 @@ packages:
     hackage: cereal-data-dword-0.1.1@sha256:a3fa6dfafaeeb3774c5888dfa601d561ce05b0af66f52859970247e58135d47e,1381
   original:
     hackage: cereal-data-dword-0.1.1
-- completed:
-    pantry-tree:
-      sha256: b95775b15664193c3301f10233f26ff43f60327f700c15e439cbed7f615c401c
-      size: 446
-    hackage: domain-aeson-0.1@sha256:8337de97b765b535cf8c252ca051c7f1573ad03b21774a09dcb6673ad7269ad1,1897
-  original:
-    hackage: domain-aeson-0.1
-- completed:
-    pantry-tree:
-      sha256: babc92fb6290d5d7b59cf6a07c8abb51a1a176824371f5cbf2a916259a337915
-      size: 366
-    hackage: domain-cereal-0.1@sha256:db6fe7980ee3f9834a9e2c7cbe577354406286fecfb18477aac712cc008a83ce,1879
-  original:
-    hackage: domain-cereal-0.1
 - completed:
     pantry-tree:
       sha256: 946dbffdad0a92dbdeeaaabb1c7ac2451f3002561407068543fcd860cd860f15
@@ -98,55 +103,25 @@ packages:
   original:
     hackage: timestamp-0.2
 - completed:
-    pantry-tree:
-      sha256: af6a4af7b400a4891918a0d3b60d16cbf90a4d5d0a101223f920d684d435754c
-      size: 402
-    hackage: leb128-cereal-1.2@sha256:ba8770629aa1fa8524cbbea3b4065b21def815a766ab6c74174aa57f8c124ead,1883
-  original:
-    hackage: leb128-cereal-1.2
-- completed:
-    pantry-tree:
-      sha256: e79a34f1cb9dd2a4a5c88d0841b88bf72cc6c873aef8dbe8d22de12d6e8c7a1d
-      size: 816
-    hackage: vector-extras-0.2.7@sha256:0bb96549e289f6cc7ba7afb3f985af39611f1f5966bce8e036419eb9a1174848,1915
-  original:
-    hackage: vector-extras-0.2.7
-- completed:
-    name: lean-http-client
-    pantry-tree:
-      sha256: 7a2401e0f6bc1f71fea5ddcdca8e0ea98f999b6c0bcc63ac54324c0b2e0682db
-      size: 544
-    commit: 5049bd8c56bcc1473d65ccf351f7979772d478b3
-    git: https://github.com/nikita-volkov/lean-http-client
-    version: '0.1'
-  original:
-    commit: 5049bd8c56bcc1473d65ccf351f7979772d478b3
-    git: https://github.com/nikita-volkov/lean-http-client
-- completed:
-    name: distillery
-    pantry-tree:
-      sha256: 03d32965a35914b68bdaa149db48ce66e774783360f5b7d8b18db72de61b7baf
-      size: 524
-    commit: 2c2905f2addb0d1925c43d427fcf65340ee64b2a
-    git: https://github.com/nikita-volkov/distillery
-    version: '0.1'
-  original:
-    commit: 2c2905f2addb0d1925c43d427fcf65340ee64b2a
-    git: https://github.com/nikita-volkov/distillery
-- completed:
     name: pgenie-protocol
     pantry-tree:
-      sha256: 94cf96033888fcd94e919202daff5a312ccd0c4b7ae0801d8742019a38da7f0e
+      sha256: 6d499128fe4da0679dc4740dbf8d47bf116b1eb032507c722ad099dec68811ba
       size: 478
-    commit: 897af90cd2c0b32ed39b4240273d21333b5d0bfb
+    commit: f0298f5382572e3c4d23676cdb8c8ff7cf1c9efb
     git: https://github.com/pgenie-tech/protocol
     version: '0.1'
   original:
-    commit: 897af90cd2c0b32ed39b4240273d21333b5d0bfb
+    commit: f0298f5382572e3c4d23676cdb8c8ff7cf1c9efb
     git: https://github.com/pgenie-tech/protocol
 snapshots:
 - completed:
-    sha256: 869e23c4f7367895ae63b129255b70bc8b4b965229aa258f6c50141c6b10ae76
-    size: 607265
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2022/6/8.yaml
-  original: nightly-2022-06-08
+    sha256: 7fff185ddc9c3cf3782ed208aaac9f9285b845bfc163642f11d4173d9c758c20
+    size: 873
+    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/a80edde26f01c6dfd0bc5f35cd079aa13bf10ce4/snapshot.yaml
+  original:
+    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/a80edde26f01c6dfd0bc5f35cd079aa13bf10ce4/snapshot.yaml
+- completed:
+    sha256: 6a7d84094bf948100b933f83f8cff586a41633d59cb1adbb89eefc25405fabe8
+    size: 616794
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2022/7/16.yaml
+  original: nightly-2022-07-16
