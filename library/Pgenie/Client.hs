@@ -4,7 +4,6 @@ module Pgenie.Client
   ( -- * Execution
     Lhc.Err (..),
     run,
-    runHappily,
 
     -- * Operations
     Op,
@@ -25,23 +24,6 @@ run :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Lhc.Err a)
 run (Op op) secure host port = do
   runReaderT op (secure, Lhc.textHost host, port)
     & Lhc.runSessionOnGlobalManager
-
--- | Execute operation exiting the program and printing a readable message in
--- case of error. Useful when for implementation of main.
-runHappily :: Op a -> Bool -> Text -> Maybe Int -> IO a
-runHappily op secure host port =
-  run op secure host port >>= either (die . to . printErr) return
-  where
-    -- TODO: Make prettier
-    printErr = \case
-      Lhc.TimeoutErr -> "Failure connecting to " <> host
-      Lhc.NetworkErr _ -> "Failure connecting to " <> host
-      Lhc.ResponseParsingErr _ ->
-        [i|
-          Unexpected response from $host.
-          You probably need to update this app.
-          Visit https://github.com/pgenie-io/app for installation instructions.
-        |]
 
 newtype Op a
   = Op (ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session a)
