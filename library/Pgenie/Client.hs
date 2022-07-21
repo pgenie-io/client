@@ -25,12 +25,6 @@ run :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Lhc.Err a)
 run (Op op) secure host port = do
   runReaderT op (secure, Lhc.textHost host, port)
     & Lhc.runSessionOnGlobalManager
-  where
-    -- TODO: Make prettier
-    printErr = \case
-      Lhc.TimeoutErr -> "Connection timeout when connecting to " <> host
-      Lhc.NetworkErr _ -> "Failure connecting to " <> host
-      Lhc.ResponseParsingErr _ -> "Unexpected response from " <> host
 
 -- | Execute operation exiting the program and printing a readable message in
 -- case of error. Useful when for implementation of main.
@@ -40,9 +34,14 @@ runHappily op secure host port =
   where
     -- TODO: Make prettier
     printErr = \case
-      Lhc.TimeoutErr -> "Connection timeout when connecting to " <> host
+      Lhc.TimeoutErr -> "Failure connecting to " <> host
       Lhc.NetworkErr _ -> "Failure connecting to " <> host
-      Lhc.ResponseParsingErr _ -> "Unexpected response from " <> host
+      Lhc.ResponseParsingErr _ ->
+        [i|
+          Unexpected response from $host.
+          You probably need to update this app.
+          Visit https://github.com/pgenie-io/app for installation instructions.
+        |]
 
 newtype Op a
   = Op (ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session a)
