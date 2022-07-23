@@ -51,7 +51,7 @@ executeRequest req =
       Lhc.expectOkStatus
       Lhc.deserializeBodyWithCereal Cereal.get
 
-process :: Name -> Name -> BVec (Path, Text) -> BVec (Path, Text) -> BVec Protocol.Artifact -> Op (Either Text (BVec (Path, Text)))
+process :: Name -> Name -> BVec (Path, Text) -> BVec (Path, Text) -> BVec Name -> Op (Either Text (BVec (Path, Text)))
 process space name migrations queries artifacts = do
   fmap mapOut $ executeRequest request
   where
