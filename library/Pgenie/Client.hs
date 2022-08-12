@@ -13,6 +13,7 @@ where
 
 import qualified Coalmine.EvenSimplerPaths as Path
 import Coalmine.Prelude hiding (Op, Version)
+import qualified Data.ByteString as ByteString
 import qualified Data.Serialize as Cereal
 import qualified Data.Text.IO as TextIO
 import qualified LeanHttpClient as Lhc
@@ -33,8 +34,10 @@ newtype Op a
 
 executeRequest :: Protocol.Request -> Op Protocol.Response
 executeRequest req =
-  Op . ReaderT $ \(https, host, port) ->
-    Lhc.post (url https host port) headers requestBody parser
+  Op . ReaderT $ \(https, host, port) -> do
+    traceM $ "Sending " <> show (ByteString.length requestBody) <> " bytes"
+    Lhc.overrideTimeout 90 $
+      Lhc.post (url https host port) headers requestBody parser
   where
     url https host port =
       Lhc.url https host port path query
