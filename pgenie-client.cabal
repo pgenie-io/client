@@ -50,3 +50,8 @@ test-suite test
   type: exitcode-stdio-1.0
   hs-source-dirs: test
   main-is: Main.hs
+
+executable debug
+  import: executable-settings
+  hs-source-dirs: debug
+  main-is: Main.hs

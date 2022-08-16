@@ -1,0 +1,11 @@
+
+on: push
+
+jobs:
+  build-linux-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: freckle/stack-cache-action@v2.0.3
+      - run: stack install
+      - run: debug
