@@ -27,7 +27,7 @@ acquireClientParams host port = do
     Tls.ClientParams
       { clientUseMaxFragmentLength = Just Tls.MaxFragment512,
         clientServerIdentification = (to host, encodeUtf8 . showAs $ port),
-        clientUseServerNameIndication = False,
+        clientUseServerNameIndication = True,
         clientWantSessionResume = Nothing,
         clientShared =
           def
