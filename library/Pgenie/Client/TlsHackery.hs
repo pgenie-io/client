@@ -25,7 +25,7 @@ acquireClientParams host port = do
   certificateStore <- X509.getSystemCertificateStore
   return $
     Tls.ClientParams
-      { clientUseMaxFragmentLength = Just Tls.MaxFragment512,
+      { clientUseMaxFragmentLength = Just Tls.MaxFragment4096,
         clientServerIdentification = (to host, encodeUtf8 . showAs $ port),
         clientUseServerNameIndication = True,
         clientWantSessionResume = Nothing,
@@ -35,18 +35,12 @@ acquireClientParams host port = do
             },
         clientHooks =
           def
-            { Tls.onSuggestALPN = do
-                res <- Tls.onSuggestALPN def
-                traceShowM ("onSuggestALPN", res)
-                return . Just . pure $ "http/1.1",
+            { Tls.onSuggestALPN = 
+                return . Just . pure $ "h2",
               Tls.onCertificateRequest =
                 \args -> do
                   traceShowM ("onCertificateRequest", args)
                   Tls.onCertificateRequest def args,
-              Tls.onServerCertificate =
-                \cs vc si cc -> do
-                  traceShowM ("onServerCertificate", si, cc)
-                  Tls.onServerCertificate def cs vc si cc,
               Tls.onCustomFFDHEGroup =
                 \params public -> do
                   traceShowM ("onCustomFFDHEGroup", params, public)
