@@ -15,14 +15,18 @@ common base-settings
     attoparsec,
     cereal,
     coalmine,
+    connection,
+    directory,
     domain,
     domain-aeson,
     domain-optics,
-    directory,
+    http-client-tls,
     lean-http-client,
     pgenie-protocol,
     rerebase,
     text-builder-dev,
+    tls,
+    x509-system,
     yaml-unscrambler,
 
 common test-settings
@@ -44,6 +48,8 @@ library
   hs-source-dirs: library
   exposed-modules:
     Pgenie.Client
+  other-modules:
+    Pgenie.Client.TlsHackery
 
 test-suite test
   import: test-settings

@@ -17,6 +17,7 @@ import qualified Data.ByteString as ByteString
 import qualified Data.Serialize as Cereal
 import qualified Data.Text.IO as TextIO
 import qualified LeanHttpClient as Lhc
+import qualified Pgenie.Client.TlsHackery as TlsHackery
 import qualified Pgenie.Protocol as Protocol
 import qualified System.Directory as Directory
 
@@ -25,8 +26,10 @@ import qualified System.Directory as Directory
 -- | Execute operation.
 run :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Lhc.Err a)
 run (Op op) secure host port = do
+  manager <-
+    TlsHackery.acquireManager host (bool 80 443 secure)
   runReaderT op (secure, Lhc.textHost host, port)
-    & Lhc.runSessionOnGlobalManager
+    & flip Lhc.runSession manager
 
 newtype Op a
   = Op (ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session a)
@@ -36,7 +39,7 @@ executeRequest :: Protocol.Request -> Op Protocol.Response
 executeRequest req =
   Op . ReaderT $ \(https, host, port) -> do
     traceM $ "Sending " <> show (ByteString.length requestBody) <> " bytes"
-    Lhc.overrideTimeout 90 $
+    Lhc.overrideTimeout 15 $
       Lhc.post (url https host port) headers requestBody parser
   where
     url https host port =
