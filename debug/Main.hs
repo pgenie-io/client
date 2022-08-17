@@ -103,5 +103,5 @@ main =
    in do
         res <- Client.run op True "api-5.pgenie.io" Nothing
         case res of
-          Left err -> print err
+          Left err -> die . showAs $ err
           Right res -> print res

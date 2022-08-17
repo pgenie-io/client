@@ -2,17 +2,10 @@
 on: push
 
 jobs:
-  build-artifact:
-    runs-on: windows-latest
+  build-linux-artifact:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ${{ steps.setup-haskell.outputs.stack-root }}
-            ~\AppData\Roaming\stack
-            ~\AppData\Local\Programs\stack
-          key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
-          restore-keys: ${{ runner.os }}-
+      - uses: freckle/stack-cache-action@v2.0.3
       - run: stack install
-      - run: stack exec debug
+      - run: debug
