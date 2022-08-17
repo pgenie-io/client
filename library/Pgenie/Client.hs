@@ -26,10 +26,12 @@ import qualified System.Directory as Directory
 -- | Execute operation.
 run :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Lhc.Err a)
 run (Op op) secure host port = do
-  manager <-
-    TlsHackery.acquireManager host (bool 80 443 secure)
+  -- manager <-
+  --   TlsHackery.acquireManager host (bool 80 443 secure)
+  -- runReaderT op (secure, Lhc.textHost host, port)
+  --   & flip Lhc.runSession manager
   runReaderT op (secure, Lhc.textHost host, port)
-    & flip Lhc.runSession manager
+    & Lhc.runSessionOnGlobalManager
 
 newtype Op a
   = Op (ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session a)

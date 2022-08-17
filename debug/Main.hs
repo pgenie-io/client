@@ -101,7 +101,7 @@ main =
           version: 1.0.0
         |]
    in do
-        res <- Client.run op True "api.pgenie.io" Nothing
+        res <- Client.run op True "api-5.pgenie.io" Nothing
         case res of
           Left err -> print err
           Right res -> print res

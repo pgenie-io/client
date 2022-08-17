@@ -35,7 +35,7 @@ acquireClientParams host port = do
             },
         clientHooks =
           def
-            { Tls.onSuggestALPN = 
+            { Tls.onSuggestALPN =
                 return . Just . pure $ "h2",
               Tls.onCertificateRequest =
                 \args -> do
