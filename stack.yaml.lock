@@ -113,6 +113,43 @@ packages:
     version: '0.1'
   original:
     url: https://github.com/pgenie-io/protocol/archive/b67f3dd03e14483903526130581f4e01e58f5aee.tar.gz
+- completed:
+    sha256: 93958e42b3e4627d633288895eb0969cde2cb5d0ee9fe9a80c3dcf7b7b04d8fb
+    name: http-client
+    subdir: http-client
+    size: 205699
+    url: https://github.com/nikita-volkov/http-client/archive/fb7bf1fd2153b02120ae34190d5ef60510f4c67a.tar.gz
+    pantry-tree:
+      sha256: 07e2025129d3205e96be3fffb87edb8390427b9d0e8f725a1bbc0dcdc93d876e
+      size: 3217
+    version: 0.7.13.1
+  original:
+    subdir: http-client
+    url: https://github.com/nikita-volkov/http-client/archive/fb7bf1fd2153b02120ae34190d5ef60510f4c67a.tar.gz
+- completed:
+    sha256: 93958e42b3e4627d633288895eb0969cde2cb5d0ee9fe9a80c3dcf7b7b04d8fb
+    name: http-client-tls
+    subdir: http-client-tls
+    size: 205699
+    url: https://github.com/nikita-volkov/http-client/archive/fb7bf1fd2153b02120ae34190d5ef60510f4c67a.tar.gz
+    pantry-tree:
+      sha256: 64f99ab026236ad486dcb50df4dab8b778169b1f166ed2b315d5f091f2d81cd7
+      size: 435
+    version: 0.3.6.1
+  original:
+    subdir: http-client-tls
+    url: https://github.com/nikita-volkov/http-client/archive/fb7bf1fd2153b02120ae34190d5ef60510f4c67a.tar.gz
+- completed:
+    sha256: ae7987d56f172605ff5d73e8af2d47cddecb18a1ac3b165556b06982cbbaadae
+    name: connection
+    size: 11500
+    url: https://github.com/nikita-volkov/hs-connection/archive/acba33e8552bb738314c916333a8dcacaa9ec027.tar.gz
+    pantry-tree:
+      sha256: 58c183590343cbb45419a7467b5bf4c14e329e5839422bf05484cbd7d4a497e7
+      size: 978
+    version: 0.3.1
+  original:
+    url: https://github.com/nikita-volkov/hs-connection/archive/acba33e8552bb738314c916333a8dcacaa9ec027.tar.gz
 snapshots:
 - completed:
     sha256: 884732144a4cd7c0bdd995e811a6b4f6c147df8624c3bd538b2f50c8f6af2479

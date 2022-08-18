@@ -56,3 +56,11 @@ test-suite e2e-test
   type: exitcode-stdio-1.0
   hs-source-dirs: e2e-test
   main-is: Main.hs
+
+test-suite debug
+  import: executable-settings
+  type: exitcode-stdio-1.0
+  hs-source-dirs: debug
+  main-is: Main.hs
+  build-depends:
+    connection,
