@@ -113,6 +113,20 @@ packages:
     version: '0.1'
   original:
     url: https://github.com/pgenie-io/protocol/archive/b67f3dd03e14483903526130581f4e01e58f5aee.tar.gz
+- completed:
+    pantry-tree:
+      sha256: 35738614f24ff682eb0b72b8fd66c9b4a919346302ddb96c96bf5b1a9eaa70f5
+      size: 2014
+    hackage: curlhs-0.1.6@sha256:ac8dbe0348ce66746774f019fe62dbdaf40a200bed62f5b7fb0ecb9bd11cfa1c,4107
+  original:
+    hackage: curlhs-0.1.6
+- completed:
+    pantry-tree:
+      sha256: 1697c8d8dbd78b4ae28bb492f8ac5d09d0892128b30f35d94436f8e32544c0ab
+      size: 305
+    hackage: rtld-0.0.2@sha256:ebf8a2ae1cd04e829f5b86b5638ed66139a76cbbe75ae43394d37cb9bd8f5037,1653
+  original:
+    hackage: rtld-0.0.2
 snapshots:
 - completed:
     sha256: 884732144a4cd7c0bdd995e811a6b4f6c147df8624c3bd538b2f50c8f6af2479

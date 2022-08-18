@@ -15,6 +15,7 @@ common base-settings
     attoparsec,
     cereal,
     coalmine,
+    curlhs,
     domain,
     domain-aeson,
     domain-optics,
@@ -44,6 +45,14 @@ library
   hs-source-dirs: library
   exposed-modules:
     Pgenie.Client
+  build-depends:
+    curly,
+
+library curly
+  import: base-settings
+  hs-source-dirs: curly-library
+  exposed-modules:
+    Curly
 
 test-suite test
   import: test-settings

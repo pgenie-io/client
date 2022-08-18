@@ -1,1 +1,4 @@
 resolver: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/015bc2cdae18e2b51f710a29ea08c90f64a9def3/snapshot.yaml
+extra-deps:
+  - curlhs-0.1.6
+  - rtld-0.0.2
