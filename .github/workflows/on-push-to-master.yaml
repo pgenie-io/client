@@ -1,0 +1,68 @@
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.metadata.outputs.name }}
+      version: ${{ steps.metadata.outputs.version }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: metadata
+        uses: nikita-volkov/extract-metadata-from-cabal@v1.0.0
+      - id: check-tag
+        uses: mukunku/tag-exists-action@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with: 
+          tag: v${{ steps.metadata.outputs.version }}
+      - name: Fail if tag exists
+        run: |
+          if [ ${{ steps.check-tag.outputs.exists }} == true ]
+          then
+            echo "Tag v${{ steps.metadata.outputs.version }} already exists"
+            exit 1
+          fi
+
+  linux-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: freckle/stack-cache-action@v2.0.3
+      - run: stack test
+
+  windows-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: freckle/stack-cache-action@v2.0.3
+      - run: stack test
+
+  macos-test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: freckle/stack-cache-action@v2.0.3
+      - run: stack test
+
+  release:
+    needs:
+      - metadata
+      - linux-test
+      - windows-test
+      - macos-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ncipollo/release-action@v1.10.0
+        with:
+          tag: v${{ needs.get-metadata.outputs.version }}
+          allowUpdates: false
+          draft: false
+          prerelease: false
+          commit: ${{ github.sha }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifactErrorsFailBuild: true
