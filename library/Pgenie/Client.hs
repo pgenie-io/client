@@ -16,6 +16,7 @@ import Coalmine.Prelude hiding (Op, Version)
 import qualified Data.Serialize as Cereal
 import qualified Data.Text.IO as TextIO
 import qualified LeanHttpClient as Lhc
+import qualified Network.HTTP.Client.OpenSSL as OpenSsl
 import qualified Pgenie.Protocol as Protocol
 import qualified System.Directory as Directory
 
@@ -24,8 +25,10 @@ import qualified System.Directory as Directory
 -- | Execute operation.
 run :: Op a -> Bool -> Text -> Maybe Int -> IO (Either Lhc.Err a)
 run (Op op) secure host port = do
-  runReaderT op (secure, Lhc.textHost host, port)
-    & Lhc.runSessionOnGlobalManager
+  OpenSsl.withOpenSSL $ do
+    manager <- OpenSsl.newOpenSSLManager
+    runReaderT op (secure, Lhc.textHost host, port)
+      & flip Lhc.runSession manager
 
 newtype Op a
   = Op (ReaderT (Bool, Lhc.Host, Maybe Int) Lhc.Session a)

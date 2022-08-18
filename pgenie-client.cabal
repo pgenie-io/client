@@ -19,6 +19,7 @@ common base-settings
     domain-aeson,
     domain-optics,
     directory,
+    http-client-openssl,
     lean-http-client,
     pgenie-protocol,
     rerebase,
