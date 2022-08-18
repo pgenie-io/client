@@ -36,7 +36,10 @@ jobs:
         with:
           path: ~/.stack
           key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
-          restore-keys: ${{ runner.os }}-
+          restore-keys: |
+            ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
+            ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
+            ${{ runner.os }}-
       - run: stack test
 
   macos-test:
@@ -47,7 +50,10 @@ jobs:
         with:
           path: ~/.stack
           key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
-          restore-keys: ${{ runner.os }}-
+          restore-keys: |
+            ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
+            ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
+            ${{ runner.os }}-
       - run: stack test
 
   windows-test:
@@ -61,7 +67,10 @@ jobs:
             ~\AppData\Roaming\stack
             ~\AppData\Local\Programs\stack
           key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
-          restore-keys: ${{ runner.os }}-
+          restore-keys: |
+            ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
+            ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
+            ${{ runner.os }}-
       - run: stack test
 
   release:
