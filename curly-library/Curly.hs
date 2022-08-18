@@ -28,36 +28,24 @@ data OpErr
   | BodyParserOpErr Text
 
 post ::
-  Url ->
+  String ->
   [(Text, Text)] ->
   ByteString ->
-  HeadersParser headers ->
   BodyParser body ->
-  Op (headers, body)
-post Url {..} headers body _ (BodyParser initWriteFunction) =
+  Op body
+post url headers body (BodyParser initWriteFunction) =
   Op $ \curl -> runExceptT $ do
     (writeFunction, readBodyResult) <- lift initWriteFunction
     lift $
       Curl.curl_easy_setopt
         curl
-        [ Curl.CURLOPT_WRITEFUNCTION . Just $ writeFunction
+        [ Curl.CURLOPT_URL url,
+          Curl.CURLOPT_FOLLOWLOCATION True,
+          Curl.CURLOPT_WRITEFUNCTION . Just $ writeFunction
         ]
     headers <- error "TODO"
     ExceptT $ catch (Right <$> Curl.curl_easy_perform curl) (return . Left . CurlOpErr)
-    body <- ExceptT $ first BodyParserOpErr <$> readBodyResult
-    return (headers, body)
-
--- * Url
-
-data Url = Url
-  { urlSecure :: !Bool,
-    urlDomain :: !(BVec Text),
-    urlPath :: !Path.Path
-  }
-
--- * HeadersParser
-
-data HeadersParser a
+    ExceptT $ first BodyParserOpErr <$> readBodyResult
 
 -- * BodyParser
 
