@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
             ${{ runner.os }}-
-      - run: stack build
+      - run: stack test
 
   macos-test:
     runs-on: macos-latest
@@ -58,7 +58,7 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
             ${{ runner.os }}-
-      - run: stack build
+      - run: stack test
 
   windows-test:
     runs-on: windows-latest
@@ -76,7 +76,7 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
             ${{ runner.os }}-
-      - run: stack build
+      - run: stack test
 
   release:
     needs:
