@@ -1,9 +1,8 @@
 module Curly
-  ( -- * Handle
-    Handle,
-    acquireHandle,
+  ( runOpHappily,
 
     -- * Op
+    Op,
   )
 where
 
@@ -11,26 +10,12 @@ import qualified Coalmine.EvenSimplerPaths as Path
 import Coalmine.Prelude hiding (Handle, Op, Version)
 import qualified Network.CURL730 as Curl
 
--- * Handle
-
-data Handle = Handle
-  { handleQueue :: !(TQueue Curl.CURL),
-    handleTakenCounter :: !(TVar Int)
-  }
-
--- | Acquire a handle which can be reused for execution of sessions.
---
--- Essentially it's a pool of Curl Easy handles.
-acquireHandle :: Int -> IO Handle
-acquireHandle =
+runOp :: Op a -> IO (Either OpErr a)
+runOp (Op runOp) =
   error "TODO"
 
-useHandle :: Handle -> Op a -> IO (Either Curl.CURLE a)
-useHandle Handle {..} (Op runOp) =
-  error "TODO"
-
-useHandleHappily :: Handle -> Op a -> IO a
-useHandleHappily =
+runOpHappily :: Op a -> IO a
+runOpHappily =
   error "TODO"
 
 -- * Op
