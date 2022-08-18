@@ -34,7 +34,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
         with:
-          path: ~/.stack
+          path: |
+            ~/.stack
+            .stack-work
           key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
@@ -48,7 +50,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/cache@v3
         with:
-          path: ~/.stack
+          path: |
+            ~/.stack
+            .stack-work
           key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
@@ -66,6 +70,7 @@ jobs:
             ~\.stack
             ~\AppData\Roaming\stack
             ~\AppData\Local\Programs\stack
+            .stack-work
           key: ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
           restore-keys: |
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
