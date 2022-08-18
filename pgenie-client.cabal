@@ -53,6 +53,8 @@ library curly
   hs-source-dirs: curly-library
   exposed-modules:
     Curly
+  other-modules:
+    Curly.CurlhsExtras
 
 test-suite test
   import: test-settings
