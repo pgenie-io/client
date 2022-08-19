@@ -15,7 +15,7 @@ main = do
           connectionUseSocks = Nothing
         }
   traceM "+ send"
-  replicateM_ 10 $ connectionPut con $ ByteString.replicate 1000 'z'
+  connectionPut con $ ByteString.replicate 10000 'z'
   traceM "- send"
   traceM "+ recv"
   r <- connectionGet con 200
