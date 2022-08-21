@@ -24,7 +24,7 @@ import qualified System.Directory as Directory
 runOpHappily :: Op a -> Bool -> Text -> Maybe Int -> IO a
 runOpHappily (Op op) secure host port = do
   runReaderT op url
-    & Curly.runOpHappily
+    & Curly.runOpHappily 15
   where
     url =
       bool "http://" "https://" secure

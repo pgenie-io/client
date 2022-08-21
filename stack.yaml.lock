@@ -73,16 +73,16 @@ packages:
   original:
     url: https://github.com/nikita-volkov/coalmine/archive/394ba4935cc1e9927da49b4189ff09b9c9058ab1.tar.gz
 - completed:
-    sha256: eaa18a372ea00823a9ffe5e5792597c35079827af47b38a112995963a25d267c
+    sha256: d6dcd0ca1503d36a353d6e4015565ce25d41ab7b132d8d11b158153af5852c24
     name: curly
-    size: 6519
-    url: https://github.com/nikita-volkov/curly/archive/c4fa6f32604c27ff745226535b97313afd34bdcf.tar.gz
+    size: 6554
+    url: https://github.com/nikita-volkov/curly/archive/befa756b963f049f34ff63d905c50125fb2f195f.tar.gz
     pantry-tree:
-      sha256: f8f2b7ba14551d0539a8330786d51e44ad5bd94d5a94f15ea85535c3bcd429c9
+      sha256: bdcc3cb625679433a021a42b934cdbe5df19085081cdd1710df0bee1fa4e151f
       size: 577
     version: '0.1'
   original:
-    url: https://github.com/nikita-volkov/curly/archive/c4fa6f32604c27ff745226535b97313afd34bdcf.tar.gz
+    url: https://github.com/nikita-volkov/curly/archive/befa756b963f049f34ff63d905c50125fb2f195f.tar.gz
 - completed:
     sha256: 58b990d08a9c79ca8893c6d36b9a84f4ad50c6eab7003a706856025de8004feb
     name: distillery
@@ -151,17 +151,17 @@ packages:
     url: https://github.com/pgenie-io/client/archive/0c7fc193da8bc25e21ae74edcb14a2e9e03e58f1.tar.gz
 snapshots:
 - completed:
-    sha256: e8e76a79bd41299b82f6f371aa3c2812ec6b02bb767d24fe0c9f3b514fd7d900
+    sha256: 237c6701d4efb03e2a72bae982185e94c82eaa4e3f5b473bf3d9513e04bb3ff6
     size: 371
-    url: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/e80b78eff67c46b465693fb4b00875820afaa001/snapshot.yaml
+    url: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/508a2760e94f293b5a8751cc2ee008114479d3d5/snapshot.yaml
   original:
-    url: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/e80b78eff67c46b465693fb4b00875820afaa001/snapshot.yaml
+    url: https://raw.githubusercontent.com/pgenie-io/stack-snapshot/508a2760e94f293b5a8751cc2ee008114479d3d5/snapshot.yaml
 - completed:
-    sha256: 9f85e40c00d5d79bd4aa248b4939319b16ed9651748ee66f1a6bd93894309967
+    sha256: 00e28a22919af2ae644c59232309a80de014165736f9f09b32b683e5d18961e6
     size: 1030
-    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/8c8f636de0d789dfabf720066457944ab3f07671/snapshot.yaml
+    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/3aca472c7e2d93b763d94e6de5d1a760f4e80d7e/snapshot.yaml
   original:
-    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/8c8f636de0d789dfabf720066457944ab3f07671/snapshot.yaml
+    url: https://raw.githubusercontent.com/nikita-volkov/stack-snapshot/3aca472c7e2d93b763d94e6de5d1a760f4e80d7e/snapshot.yaml
 - completed:
     sha256: a10f9e3f425aa803549f72b29adb0825ac68262b16140e855f5683b91c2bedfe
     size: 630640
