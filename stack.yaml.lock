@@ -149,6 +149,17 @@ packages:
     version: '0.1'
   original:
     url: https://github.com/pgenie-io/client/archive/0c7fc193da8bc25e21ae74edcb14a2e9e03e58f1.tar.gz
+- completed:
+    sha256: 62a3fbd5eab49eb9e1f626dcb23173409bd6b1401360fdb2d4db2fb80d6ffec4
+    name: curly
+    size: 6548
+    url: https://github.com/nikita-volkov/curly/archive/a17f2378034ee2319ee10e1d343ef473f3044b3b.tar.gz
+    pantry-tree:
+      sha256: dfc9b365788a0c1b99be8408de3bfb2f2e5ce6368bfdd8a49458f29ce765226a
+      size: 577
+    version: '0.1'
+  original:
+    url: https://github.com/nikita-volkov/curly/archive/a17f2378034ee2319ee10e1d343ef473f3044b3b.tar.gz
 snapshots:
 - completed:
     sha256: 237c6701d4efb03e2a72bae982185e94c82eaa4e3f5b473bf3d9513e04bb3ff6
