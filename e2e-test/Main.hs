@@ -101,7 +101,5 @@ main =
           version: 1.0.0
         |]
    in do
-        res <- Client.run op True "api.pgenie.io" Nothing
-        case res of
-          Left err -> die . showAs $ err
-          Right res -> putStrLn "Success"
+        res <- Client.runOpHappily op True "api.pgenie.io" Nothing
+        putStrLn "Success"
