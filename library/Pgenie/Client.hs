@@ -13,6 +13,7 @@ where
 
 import qualified Coalmine.EvenSimplerPaths as Path
 import Coalmine.Prelude hiding (Op, Version)
+import qualified Data.ByteString as ByteString
 import qualified Data.Serialize as Cereal
 import qualified Data.Text.IO as TextIO
 import qualified LeanHttpClient as Lhc
@@ -43,7 +44,8 @@ executeRequest req =
         query = []
     headers =
       mconcat
-        [ Lhc.requestHeader "content-type" "application/octet-stream"
+        [ Lhc.requestHeader "content-type" "application/octet-stream",
+          Lhc.requestHeader "content-length" $ fromString $ show $ ByteString.length requestBody
         ]
     requestBody =
       Cereal.encode req
