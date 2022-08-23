@@ -16,5 +16,4 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
             ${{ runner.os }}-
-      - run: sudo ethtool -K eth0 tx off rx off
       - run: stack test
