@@ -13,6 +13,7 @@ where
 import qualified Coalmine.EvenSimplerPaths as Path
 import Coalmine.Prelude hiding (Op, Version)
 import qualified Curly
+import qualified Data.ByteString as ByteString
 import qualified Data.Serialize as Cereal
 import qualified Data.Text.IO as TextIO
 import qualified Pgenie.Protocol as Protocol
@@ -42,7 +43,8 @@ executeRequest req =
     Curly.post url headers requestBody Curly.implicitCerealBodyParser
   where
     headers =
-      [ ("content-type", "application/octet-stream")
+      [ ("content-type", "application/octet-stream"),
+        ("content-length", fromString $ show $ ByteString.length requestBody)
       ]
     requestBody =
       Cereal.encode req
