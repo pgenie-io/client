@@ -43,7 +43,7 @@ executeRequest req =
     Curly.post url headers requestBody Curly.implicitCerealBodyParser
   where
     headers =
-      [ ("content-type", "application/octet-stream"),
+      [ ("content-type", "application/x-www-form-urlencoded"),
         ("content-length", fromString $ show $ ByteString.length requestBody)
       ]
     requestBody =
