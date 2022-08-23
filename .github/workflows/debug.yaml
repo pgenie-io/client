@@ -16,4 +16,5 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-${{ hashFiles('**.cabal') }}
             ${{ runner.os }}-${{ hashFiles('stack.yaml.lock') }}-
             ${{ runner.os }}-
+      - run: openssl rand -hex 30000 | curl -v --no-progress-meter -X POST --data-binary @- https://apigw.yandexcloud.net
       - run: stack test
