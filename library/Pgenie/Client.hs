@@ -44,7 +44,8 @@ executeRequest req =
   where
     headers =
       [ ("content-type", "application/x-www-form-urlencoded"),
-        ("content-length", fromString $ show $ ByteString.length requestBody)
+        ("content-length", fromString $ show $ ByteString.length requestBody),
+        ("user-agent", "curl/7.68.0")
       ]
     requestBody =
       Cereal.encode req
